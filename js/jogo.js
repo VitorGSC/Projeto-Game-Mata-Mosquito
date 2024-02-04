@@ -53,19 +53,6 @@ function positionRandom() {
     mosca.style.top = posicaoY + 'px';
     mosca.className = heightMosca() + ladoAleatorio();
 
-    timer = setInterval(function() {
-        if(document.getElementById('mosca')) document.getElementById('mosca').remove();
-        clearInterval(timer);
-        life--;
-        if(life === 0) {
-            window.location.href = 'fim_de_jogo.html';
-            clearInterval(timer_vitoria);
-            clearInterval(timer);
-        }
-        document.getElementById('lf' + life).src = 'imagens/coracao_vazio.png';
-        positionRandom();
-    }, setLevel());
-
     // Evento de click
     mosca.addEventListener('click', function() {
         clearInterval(timer);
