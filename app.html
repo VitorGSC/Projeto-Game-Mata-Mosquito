@@ -25,7 +25,7 @@
         positionRandom()    
         document.getElementById('contagem').innerHTML = tempo;
 
-        var timer = setInterval(function(){
+        timer = setInterval(function(){
             life--;
             if(life <= 0) {
                 clearInterval(timer);
