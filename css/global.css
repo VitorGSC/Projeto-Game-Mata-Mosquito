@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    cursor: url("../imagens/mata_mosca.png") 30 30, auto;
+}
+
+body {
+    background: lightblue url('../imagens/bg.jpg') no-repeat fixed center;
+    background-size: cover;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    cursor: pointer;
+    margin: 8px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    width: 110px;
+    height: 50px;
+    font-size: 18px;
+}

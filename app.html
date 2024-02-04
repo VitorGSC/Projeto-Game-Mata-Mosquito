@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/jogo.js"></script>
+    <title>Jogo</title>
+</head>
+<body onresize="ajusteTamanho()">
+    <div class="container">
+        <div id="display"></div>
+        <div id="box-status">
+            <div class="corações">
+                <img id="lf1" src="imagens/coracao_cheio.png" alt="">
+                <img id="lf2" src="imagens/coracao_cheio.png" alt="">
+                <img id="lf3" src="imagens/coracao_cheio.png" alt="">
+            </div>
+            <div id="status">Tempo restante: <div id="contagem"></div></div>
+        </div>
+    </div>
+    <script>
+        
+        positionRandom()    
+        document.getElementById('contagem').innerHTML = tempo;
+
+        var timer = setInterval(function(){
+            life--;
+            if(life <= 0) {
+                clearInterval(timer);
+                clearInterval(timer_vitoria);
+                window.location.href = "fim_de_jogo.html";
+            } else {
+                document.getElementById('lf'+life).src = '../imagens/coracao_vazio.png';
+                positionRandom();
+            }  
+        }, setLevel());
+    </script>
+</body>
+</html>
