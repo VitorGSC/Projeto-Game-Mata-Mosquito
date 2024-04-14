@@ -1,12 +1,10 @@
 var level = window.location.search;
 var altura = 0;
 var largura = 0;
-var life = 4;
+var life = 3;
 var timer;
 var tempo = 20;
 var _initGame;
-
-
 
 function ajusteTamanho() {
     altura = window.innerHeight;
@@ -14,6 +12,16 @@ function ajusteTamanho() {
 }
 
 ajusteTamanho()
+
+var timer_vitoria = setInterval(function() {
+    document.getElementById('contagem').innerHTML = tempo;
+    tempo--;
+    if(tempo === 0) {
+        clearInterval(timer_vitoria);
+        clearInterval(timer);
+        window.location.href = 'vitoria.html';
+    }
+}, 1000);
 
 function initGame() {
     var nivel = document.getElementById('nivel').value;
@@ -31,8 +39,15 @@ function setLevel() {
 }
 
 function positionRandom() {
-    if(document.getElementById('mosca')) document.getElementById('mosca').remove();
-
+    if(document.getElementById('mosca')){
+         document.getElementById('mosca').remove();
+         if(life <= 0) {
+            window.location.href = 'fim_de_jogo.html';
+         } else {
+            document.getElementById('lf' + life).src = "../imagens/coracao_vazio.png";
+            life--;
+         }
+    }
     var posicaoX = Math.floor(Math.random() * largura) - 90;
     var posicaoY = Math.floor(Math.random() * altura) - 90;
 
@@ -48,12 +63,10 @@ function positionRandom() {
 
     // Evento de click
     mosca.addEventListener('click', function() {
-        clearInterval(timer);
-        positionRandom();
+        this.remove();
     });
 
     document.body.appendChild(mosca);
-    console.log(_initGame)
 }
 
 function heightMosca() {

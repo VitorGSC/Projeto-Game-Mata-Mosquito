@@ -21,36 +21,9 @@
         </div>
     </div>
     <script>
-        if(_initGame === undefined){ _initGame = true;}
-        
-        positionRandom()    
-        // document.getElementById('contagem').innerHTML = tempo;
-        if(_initGame === true) {
-            console.log('Jogo iniciado (debug vida)');
-            timer = setInterval(function(){
-                life--;
-                if(life <= 0) {
-                    clearInterval(timer);
-                    clearInterval(timer_vitoria);
-                    window.location.href = "fim_de_jogo.html";
-                } else {
-                    document.getElementById('lf'+life).src = '../imagens/coracao_vazio.png';
-                    positionRandom();
-                }  
-            }, setLevel());
-        }
-
-        if(_initGame === true) {
-            var timer_vitoria = setInterval(function() {
-                document.getElementById('contagem').innerHTML = tempo;
-                tempo--;
-                if(tempo === 0) {
-                    clearInterval(timer_vitoria);
-                    clearInterval(timer);
-                    window.location.href = 'vitoria.html';
-                }
-            }, 1000);
-        }
+        var timer = setInterval(function() {
+            positionRandom();
+        }, setLevel());
     </script>
 </body>
 </html>
