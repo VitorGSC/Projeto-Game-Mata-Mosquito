@@ -4,16 +4,9 @@ var largura = 0;
 var life = 4;
 var timer;
 var tempo = 20;
+var _initGame;
 
-var timer_vitoria = setInterval(function() {
-    document.getElementById('contagem').innerHTML = tempo;
-    tempo--;
-    if(tempo === 0) {
-        clearInterval(timer_vitoria);
-        clearInterval(timer);
-        window.location.href = 'vitoria.html'
-    }
-}, 1000);
+
 
 function ajusteTamanho() {
     altura = window.innerHeight;
@@ -60,6 +53,7 @@ function positionRandom() {
     });
 
     document.body.appendChild(mosca);
+    console.log(_initGame)
 }
 
 function heightMosca() {
